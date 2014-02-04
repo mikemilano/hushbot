@@ -1,0 +1,90 @@
+server:
+    host: 127.0.0.1
+    port: 25565
+    rcon_port: 25575
+    rcon_pass: secret
+
+settings:
+    spi_channel: 0
+    sample:
+        count: 2
+        delay: .1
+        size: 8000
+    threshold_1: 7
+    threshold_2: 11
+    reward_time_1: 300
+    reward_time_2: 900
+    reward_time_3: 1800
+
+punishments:
+    level1:
+        slow3:
+            say: "Loud sounds lag the server. You are slow."
+            rcon:
+                - "/effect @a 2 45 3"
+        blindness:
+            say: "Can you see me now? 30 second timeout."
+            rcon:
+                - "/effect @a 15 30 3"
+
+    level2:
+        poison:
+            say: "You are poisoned. I love fluffy pink unicorns."
+            rcon:
+                - "/effect @a 19"
+            sounds:
+                - "sounds/punishments/fluffy_pink.mp3"
+        blindness:
+            say: "You are blind. I love fluffy pink unicorns."
+            rcon:
+                - "/effect @a 15 90 3"
+            sounds:
+                - "sounds/punishments/fluffy_pink.mp3"
+
+rewards:
+    level1:
+        speed:
+            say: "Ah, nice and quiet. Let's speed things up a bit."
+            rcon:
+                - "/effect @a 1 45 30"
+                - "/give @a iron_ore 1"
+        haste:
+            say: " Mine faster my friends. You earned it."
+            rcon:
+                - "/effect @a 3 45 3"
+                - "/give @a iron_ore 1"
+        jump:
+            say: "Level 2 reward, 2 ore and jump."
+            rcon:
+                - "/effect @a 8 45 8"
+                - "/effect @a 11 90 6"
+                - "/give @a iron_ore 1"
+
+    level2:
+        speed:
+            say: "Level 2 reward, 2 ore and speed."
+            rcon:
+                - "/effect @a 1 90 40"
+                - "/give @a iron_ore 2"
+        haste:
+            say: "Level 2 reward, 2 ore and haste."
+            rcon:
+                - "/effect @a 3 90 3"
+                - "/give @a iron_ore 2"
+
+        jump:
+            say: "Level 2 reward, 2 ore and jump."
+            rcon:
+                - "/effect @a 8 90 8"
+                - "/effect @a 11 90 6"
+                - "/give @a iron_ore 2"
+
+    level3:
+        power:
+            say: "Hushbot: Ah, nice and quiet. Let's speed things up a bit."
+            rcon:
+                - "/effect @a 1 120 30"
+                - "/effect @a 3 120 3"
+                - "/effect @a 8 120 8"
+                - "/effect @a 11 120 6"
+                - "/give @a diamond_ore 1"
