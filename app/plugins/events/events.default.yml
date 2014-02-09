@@ -1,0 +1,6 @@
+# Copy this file to the config directory.
+# Rename it events.yml
+
+# host must be an ip address
+host: 192.168.7.1
+port: 5000

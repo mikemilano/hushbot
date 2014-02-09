@@ -2,11 +2,12 @@ import socket
 import struct
 import select
 import re
+#from app.shared import config
 
 
 class Minecraft:
     def __init__(self, config):
-        self.config = config
+        self.config = config['minecraft']
 
 class Query:
     """

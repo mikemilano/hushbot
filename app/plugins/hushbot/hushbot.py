@@ -5,14 +5,18 @@ ADC.setup()
 
 
 class HushBot():
-    def __init__(self, app_config, hb_config, minecraft):
-        self.config = hb_config
-        self.minecraft = minecraft
-        self.input_pin = hb_config["input_pin"]
-        self.autostart = hb_config["autostart"]
+    def __init__(self, config, plugins):
+        self.config = config['hushbot']
+        self.minecraft = plugins['minecraft']
+        self.espeak = plugins['espeak']
+
+        self.espeak.say('initialized')
+
+        self.input_pin = self.config["input_pin"]
+        self.autostart = self.config["autostart"]
         self.pause = not self.autostart
-        self.delay = hb_config["sample_delay"]
-        self.sample_size = hb_config["sample_size"]
+        self.delay = self.config["sample_delay"]
+        self.sample_size = self.config["sample_size"]
         if not self.pause:
             reactor.callLater(self.delay, self.sample)
 
