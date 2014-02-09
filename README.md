@@ -10,3 +10,15 @@ python-zmq libzmq-dev python-yaml alsa-base alsa-utils alsa-oss mpg321  libmpg12
 sudo easy_install -U distribute
 sudo pip install Adafruit_BBIO txzmq
 ```
+
+You must run the app as root due to serial communication.
+
+```
+git clone git@github.com:mikemilano/hushbot.git
+cd hushbot
+cp app/plugins/hushbot/hushbot.default.yml config/hushbot.yml
+cp app/plugins/minecraft/minecraft.default.yml config/minecraft.yml
+sudo bin/start.sh
+```
+
+Logs will be written to the `log` directory and the process ID file will be written to the `run` directory.
