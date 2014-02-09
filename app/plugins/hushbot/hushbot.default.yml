@@ -1,20 +1,18 @@
-server:
-    host: 127.0.0.1
-    port: 25565
-    rcon_port: 25575
-    rcon_pass: secret
+# Copy this file to the config directory.
+# Rename it hushbot.yml
 
-settings:
-    spi_channel: 0
-    sample:
-        count: 2
-        delay: .1
-        size: 8000
-    threshold_1: 7
-    threshold_2: 11
-    reward_time_1: 300
-    reward_time_2: 900
-    reward_time_3: 1800
+autostart: true
+input_pin: "P9_40"
+
+sample_delay: 1
+sample_size: 50
+
+punish_threshold_1: 5
+punish_threshold_2: 7
+
+reward_time_1: 300
+reward_time_2: 900
+reward_time_3: 1800
 
 punishments:
     level1:
@@ -54,7 +52,7 @@ rewards:
                 - "/effect @a 3 45 3"
                 - "/give @a iron_ore 1"
         jump:
-            say: "Level 2 reward, 2 ore and jump."
+            say: "Have some iron, and jump jump jump!"
             rcon:
                 - "/effect @a 8 45 8"
                 - "/effect @a 11 90 6"
