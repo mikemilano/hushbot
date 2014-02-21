@@ -7,7 +7,7 @@ class Espeak:
         self.config = config["app"]
         pass
 
-    def say(self, str, block=False):
+    def say(self, str, block=True):
         p1 = Popen(['espeak', str, '--stdout'], stdout=PIPE)
         p2 = Popen(['aplay', '-D', self.config['audio_device']], stdin=p1.stdout)
         p1.stdout.close()

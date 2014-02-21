@@ -1,11 +1,8 @@
-
 from twisted.application import service, internet
 from twisted.web.server import Site
-
 import random
-from subprocess import Popen
 import yaml
-
+from plugins.playback.playback import Playback
 from plugins.espeak.espeak import Espeak
 from plugins.minecraft.minecraft import Minecraft
 from plugins.hushbot.hushbot import HushBot
@@ -17,7 +14,6 @@ def getConfig(filepath):
     with open(filepath, 'r') as f:
         config = yaml.load(f)
     return config
-
 
 # initialize globals
 shared.init()
@@ -34,13 +30,12 @@ internet.TCPServer(8080, factory).setServiceParent(application)
 # load main config
 config["app"] = getConfig('../config/config.yml')
 
-# Play random r2 sound
-#num = random.randint(1, 14)
-#p = Popen(['mpg321', '-o', 'alsa', '--audiodevice', config["app"]["audio_device"], './assets/audio/r2d2/r2_' + str(num) + '.mp3'])
-# block
-#p.wait()
-
 # Manually load plugins for now
+plugins['playback'] = Playback(config)
+# random r2 sound to know hushbot has started
+num = random.randint(1, 14)
+plugins['playback'].play('./assets/audio/r2d2/r2_' + str(num) + '.mp3', True)
+
 plugins['espeak'] = Espeak(config)
 
 config['minecraft'] = getConfig('../config/minecraft.yml')

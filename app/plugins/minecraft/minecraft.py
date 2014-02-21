@@ -2,12 +2,12 @@ import socket
 import struct
 import select
 import re
-#from app.shared import config
 
 
 class Minecraft:
     def __init__(self, config):
         self.config = config['minecraft']
+        self.rcon = Rcon(self.config['host'], self.config['rcon_port'], self.config['rcon_pass'])
 
 class Query:
     """
