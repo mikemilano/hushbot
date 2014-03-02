@@ -1,0 +1,7 @@
+plugins:
+  - minecraft
+  - hushbot
+
+audio_device: "hw:1,0"
+
+ssh_port: 2222
