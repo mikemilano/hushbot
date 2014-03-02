@@ -1,0 +1,102 @@
+debug: true
+autostart: true
+input_pin: "P9_40"
+
+sample_delay: 1
+sample_size: 50
+sample_count: 2
+
+reward_time_1: 300
+reward_time_2: 900
+reward_time_3: 1800
+
+punish_threshold_1: 0.4
+punish_threshold_2: 0.7
+
+
+rewards:
+    level1:
+        speed:
+            delay: 30
+            say: "Ah, nice and quiet. Let's speed things up a bit."
+            rcon:
+                - "/effect @a 1 45 30"
+                - "/give @a iron_ore 1"
+        haste:
+            delay: 30
+            say: " Mine faster my friends. You earned it."
+            rcon:
+                - "/effect @a 3 45 3"
+                - "/give @a iron_ore 1"
+        jump:
+            say: "Have some iron, and jump jump jump!"
+            rcon:
+                - "/effect @a 8 45 8"
+                - "/effect @a 11 90 6"
+                - "/give @a iron_ore 1"
+
+    level2:
+        speed:
+            delay: 90
+            say: "Level 2 reward, 2 ore and speed."
+            rcon:
+                - "/effect @a 1 90 40"
+                - "/give @a iron_ore 2"
+        haste:
+            delay: 90
+            say: "Level 2 reward, 2 ore and haste."
+            rcon:
+                - "/effect @a 3 90 3"
+                - "/give @a iron_ore 2"
+
+        jump:
+            delay: 90
+            say: "Level 2 reward, 2 ore and jump."
+            rcon:
+                - "/effect @a 8 90 8"
+                - "/effect @a 11 90 6"
+                - "/give @a iron_ore 2"
+
+    level3:
+        power:
+            delay: 90
+            say: "Hushbot: Ah, nice and quiet. Let's speed things up a bit."
+            rcon:
+                - "/effect @a 1 120 30"
+                - "/effect @a 3 120 3"
+                - "/effect @a 8 120 8"
+                - "/effect @a 11 120 6"
+                - "/give @a diamond_ore 1"
+
+punishments:
+    level1:
+        slow:
+            delay: 30
+            say: "Loud sounds lag the server. You are slow."
+            rcon:
+                - "/effect @a 2 45 3"
+        blindness:
+            delay: 30
+            say: "Can you see me now? 30 second timeout."
+            rcon:
+                - "/effect @a 15 30 3"
+
+    level2:
+        poison:
+            delay: 90
+            say: "You are poisoned. Do you like unicorns?"
+            rcon:
+                - "/effect @a 19"
+                - "/effect @a 15 60 3"
+            sounds:
+                - "./assets/audio/punishments/pinkfluffy.mp3"
+        blindness:
+            delay: 90
+            say: "What color are the unicorns?"
+            rcon:
+                - "/effect @a 19"
+                - "/effect @a 15 90 3"
+            sounds:
+                - "./assets/audio/punishments/pinkfluffy.mp3"
+
+
