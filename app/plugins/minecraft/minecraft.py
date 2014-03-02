@@ -218,3 +218,9 @@ class Rcon:
             ready = select.select([self.s], [], [], 0)[0]
 
         return in_data
+
+
+if __name__ == '__main__':
+    rcon = Rcon('127.0.0.1', 25575, 's3cr3t')
+    rcon.send('/say testing rcon...')
+    rcon.close()
