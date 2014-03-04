@@ -10,8 +10,8 @@ reward_time_1: 300
 reward_time_2: 900
 reward_time_3: 1800
 
-punish_threshold_1: 0.4
-punish_threshold_2: 0.7
+punish_threshold_1: 0.12
+punish_threshold_2: 0.15
 
 
 rewards:
